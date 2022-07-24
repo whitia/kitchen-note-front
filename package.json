@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "axios": "^0.27.2",
     "modern-css-reset": "^1.4.0",
     "next": "12.2.3",
     "react": "18.2.0",
