@@ -1,4 +1,4 @@
-import 'modern-css-reset/dist/reset.min.css'
+import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 import Layout from '../components/layout'
 
