@@ -2,10 +2,12 @@ import Header from './header'
 
 const Layout = ({children}: any) => {
   return (
-    <div>
+    <>
       <Header />
-      <main>{children}</main>
-    </div>
+      <div className="container mx-auto max-w-2xl">
+        <main>{children}</main>
+      </div>
+    </>
   )
 }
 
