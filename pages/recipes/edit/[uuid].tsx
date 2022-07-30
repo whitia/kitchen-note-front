@@ -4,7 +4,7 @@ import action from '../../../lib/recipes/action'
 
 export const getStaticPaths = async () => {
   const data = await action.index()
-  const paths = data['data'].map((recipe: Recipe) => ({
+  const paths = data['data']['recipes'].map((recipe: Recipe) => ({
     params: { uuid: recipe.uuid }
   }))
   return { paths, fallback: false }
@@ -17,20 +17,21 @@ export const getStaticProps = async (params: any) => {
 }
 
 const Edit = ({ data }: any) => {
-  const router = useRouter()
   const recipe: Recipe = data['data']['recipe']
   const ingredients: string[] = data['data']['ingredients']
 
+  const router = useRouter()
   const handleSubmit = async (event: any) => {
     event.preventDefault()
 
-    const body = JSON.stringify({
-      title: event.target.title.value,
-      external_title: event.target.externalTitle.value,
-      external_url: event.target.externalURL.value,
-    })
+    const formData = new FormData()
+    formData.append('title', event.target.title.value)
+    formData.append('uuid', recipe.uuid)
+    formData.append('external_title', event.target.externalTitle.value)
+    formData.append('external_url', event.target.externalURL.value)
+    formData.append('image', event.target.image.files[0])
 
-    const data = await action.update(recipe.uuid, body)
+    const data = await action.update(recipe.uuid, formData)
 
     router.push(`/recipes/${recipe.uuid}`)
   }
@@ -47,6 +48,16 @@ const Edit = ({ data }: any) => {
 
         <label htmlFor="externalURL">外部リンクURL</label>
         <input type="text" id="externalURL" name="externalURL" defaultValue={recipe.external_url} required />
+
+        <label htmlFor="image">
+          <input
+            accept="image/*"
+            id="image"
+            type="file"
+            hidden
+          />
+          画像選択
+        </label>
 
         <button type="submit">送信</button>
       </form>
