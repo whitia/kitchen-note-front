@@ -1,3 +1,27 @@
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  html, body {
+    @apply text-slate-700
+  }
+  a {
+    @apply text-violet-500
+  }
+  .label {
+    @apply text-right font-bold
+  }
+  .input-text {
+    @apply mt-2 p-4 w-full border border-slate-300 rounded transition duration-200 focus:outline-none focus:bg-slate-50
+  }
+  .btn {
+    @apply font-bold py-3 px-7 rounded text-white bg-violet-500 shadow-lg transition duration-200 hover:bg-violet-600
+  }
+  .flex-part-input {
+    @apply input-text rounded-r-none
+  }
+  .flex-part-btn {
+    @apply mt-2 p-4 text-slate-500 bg-slate-200 border border-slate-300 border-l-0 rounded rounded-l-none transition duration-200 hover:bg-slate-300
+  }
+}
