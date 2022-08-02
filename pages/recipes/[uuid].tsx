@@ -28,8 +28,11 @@ const Recipe = ({ data }: any) => {
   return (
     <>
       <img title={recipe.title} src={image_url} className="img-cover h-64 md:h-[28rem] mb-8" />
-      <div className="flex justify-between items-end mb-8">
-        <h2 className="text-3xl">{recipe.title}</h2>
+      <div className="flex justify-between items-start mb-8">
+        <div>
+          <h2 className="text-3xl">{recipe.title}</h2>
+          <div className="text-sm text-neutral-400">{recipe.category}</div>
+        </div>
         <p>
           <Link href={`/recipes/edit/${encodeURIComponent(recipe.uuid)}`}>
             <a><FontAwesomeIcon icon={faPenToSquare} /></a>
