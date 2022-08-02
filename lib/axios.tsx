@@ -1,10 +1,14 @@
 import axios from 'axios'
 
-const instance = axios.create({
-  baseURL: 'http://localhost:3001/api/v1',
+const getBaseURL = (() => {
+  return process.env.NEXT_PUBLIC_BASE_URL
+})()
+
+const client = axios.create({
+  baseURL: getBaseURL,
   headers: {
     'Content-Type': "application/json",
   },
 })
 
-export default instance
+export default client
