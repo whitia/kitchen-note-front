@@ -1,19 +1,27 @@
 import Link from 'next/link'
+import Search from './search'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faPlus } from '@fortawesome/free-solid-svg-icons'
 
 const Header = () => {
   const title = process.env.NEXT_PUBLIC_SITE_TITLE
   const titleSplit = title?.split(' ')
   return (
     <>
-      <div className="container mx-auto max-w-2xl flex justify-between items-end mt-3 mb-5">
+      <div className="container mx-auto max-w-full md:max-w-2xl flex justify-between items-center my-4">
         <Link href='/recipes'>
-          <a className="text-3xl bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">
+          <a className="text-3xl bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500 hover:text-transparent hover:from-pink-600 hover:to-violet-600">
             <span className="font-semibold">{titleSplit && titleSplit[0]}</span>
             <span className="font-extralight">{titleSplit && titleSplit[1]}</span>
           </a>
         </Link>
+        <div className="basis-1/3 ml-auto mr-4"><Search /></div>
         <Link href='/recipes/new'>
-          <a className="btn py-2 px-4 text-sm">新規作成</a>
+          <a className="btn py-2 px-4 text-sm">
+            <FontAwesomeIcon icon={faPlus} />
+            &nbsp;
+            Create
+          </a>
         </Link>
       </div>
     </>
