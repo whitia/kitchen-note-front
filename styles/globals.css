@@ -4,24 +4,30 @@
 
 @layer components {
   html, body {
-    @apply text-slate-700
+    @apply font-sans text-neutral-700 bg-white dark:text-neutral-300 dark:bg-neutral-900
   }
   a {
-    @apply text-violet-500
+    @apply text-neutral-400 transition duration-200 hover:text-neutral-500
+  }
+  .img-cover {
+    @apply object-cover object-center w-full rounded-lg
+  }
+  .badge {
+    @apply p-2 text-sm text-neutral-500 bg-neutral-100 rounded-sm hover:text-neutral-500 dark:text-neutral-400 dark:bg-neutral-800
   }
   .label {
-    @apply text-right font-bold
+    @apply font-bold
   }
   .input-text {
-    @apply mt-2 p-4 w-full border border-slate-300 rounded transition duration-200 focus:outline-none focus:bg-slate-50
+    @apply mt-3 p-3 w-full border border-neutral-300 rounded transition duration-200 focus:outline-none focus:bg-neutral-50 dark:bg-neutral-800 dark:border-neutral-700 dark:placeholder-neutral-500 dark:focus:bg-neutral-700
   }
   .btn {
-    @apply font-bold py-3 px-7 rounded text-white bg-violet-500 shadow-lg transition duration-200 hover:bg-violet-600
+    @apply py-3 px-7 rounded-lg text-neutral-100 bg-gradient-to-r from-pink-500 to-violet-500 transition duration-200 hover:from-pink-600 hover:to-violet-600 hover:text-neutral-100
   }
   .flex-part-input {
-    @apply input-text rounded-r-none
+    @apply input-text w-5/6 md:w-11/12 rounded-r-none
   }
   .flex-part-btn {
-    @apply mt-2 p-4 text-slate-500 bg-slate-200 border border-slate-300 border-l-0 rounded rounded-l-none transition duration-200 hover:bg-slate-300
+    @apply mt-3 p-3 w-1/6 md:w-1/12 text-neutral-500 bg-neutral-100 border border-neutral-300 border-l-0 rounded rounded-l-none transition duration-200 hover:bg-neutral-200 dark:text-neutral-400 dark:bg-neutral-700 dark:border-neutral-700 dark:hover:bg-neutral-600
   }
 }
