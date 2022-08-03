@@ -31,7 +31,10 @@ const Recipe = ({ data }: any) => {
       <div className="flex justify-between items-start mb-8">
         <div>
           <h2 className="text-3xl">{recipe.title}</h2>
-          <div className="text-sm text-neutral-400">{recipe.category}</div>
+          <span className="text-sm text-neutral-400">{recipe.category}</span>
+          {recipe.sub_category && (
+            <span className="text-sm text-neutral-400"> / {recipe.sub_category}</span>
+          )}
         </div>
         <p>
           <Link href={`/recipes/edit/${encodeURIComponent(recipe.uuid)}`}>

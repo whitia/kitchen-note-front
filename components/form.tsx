@@ -122,6 +122,7 @@ const Form = (props: any) => {
     formData.append('title', event.target.title.value)
     formData.append('uuid', uuid.generate())
     formData.append('category', event.target.category.value)
+    formData.append('sub_category', event.target.sub_category.value)
     formData.append('external_title', event.target.externalTitle.value)
     formData.append('external_url', event.target.externalURL.value)
     formData.append('image', event.target.image.files[0])
@@ -151,6 +152,7 @@ const Form = (props: any) => {
     formData.append('title', event.target.title.value)
     formData.append('uuid', recipe!.uuid)
     formData.append('category', event.target.category.value)
+    formData.append('sub_category', event.target.sub_category.value)
     formData.append('external_title', event.target.externalTitle.value)
     formData.append('external_url', event.target.externalURL.value)
     formData.append('ingredients', ingredients.join(','))
@@ -193,6 +195,11 @@ const Form = (props: any) => {
         <div className="mb-8">
           <label htmlFor="category" className="label">Category</label>
           <input className="input-text" type="text" id="category" name="category" placeholder="Category" defaultValue={recipe?.category} />
+        </div>
+
+        <div className="mb-8">
+          <label htmlFor="sub_category" className="label">Sub Category</label>
+          <input className="input-text" type="text" id="sub_category" name="sub_category" placeholder="Sub Category" defaultValue={recipe?.sub_category} />
         </div>
 
         <div className="mb-8">
