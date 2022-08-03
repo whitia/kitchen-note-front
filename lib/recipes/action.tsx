@@ -1,8 +1,13 @@
 import client from '../axios'
 
 module action {
-  export const index = async () => {
-    const response = await client.get('/recipes')
+  export const index = async (offset: number, limit: number) => {
+    const response = await client.get('/recipes', {
+      params: {
+        offset: offset,
+        limit: limit,
+      }
+    })
     return response.data
   }
 
@@ -27,7 +32,11 @@ module action {
   }
 
   export const search = async (query: string) => {
-    const response = await client.get(`/recipes/search?query=${query}`)
+    const response = await client.get('/recipes/search', {
+      params: {
+        query: query,
+      }
+    })
     return response.data
   }
 }
