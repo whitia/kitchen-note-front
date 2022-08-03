@@ -6,6 +6,14 @@ import { useRef } from 'react'
 const Search = () => {
   const router = useRouter()
   const inputSearch = useRef<HTMLInputElement>(null)
+
+  const regexp = new RegExp(/search/)
+  if (!regexp.test(router.pathname)) {
+    if (inputSearch.current) {
+      inputSearch.current.value = ''
+    }
+  }
+
   const handleSearchSubmit = async (event: any) => {
     event.preventDefault()
 
