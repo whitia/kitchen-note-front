@@ -7,9 +7,11 @@ const Search = () => {
   const router = useRouter()
   const inputSearch = useRef<HTMLInputElement>(null)
 
-  const regexp = new RegExp(/search/)
-  if (!regexp.test(router.pathname)) {
-    if (inputSearch.current) {
+  if (inputSearch.current) {
+    const regexp = new RegExp(/search/)
+    if (regexp.test(router.pathname)) {
+      inputSearch.current.value = decodeURI(router.query.query as string)
+    } else {
       inputSearch.current.value = ''
     }
   }
