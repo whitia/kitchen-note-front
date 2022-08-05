@@ -173,7 +173,7 @@ const Form = (props: any) => {
       <h2 className="text-3xl mb-8 mt-2 md:mt-2">{props.action}</h2>
       <form onSubmit={props.action == 'Create' ? handleCreateSubmit : handleUpdateSubmit}>
         <div className="mb-8">
-          <label htmlFor="image_name" className="label">Cover Image</label>
+          <label htmlFor="coverImage" className="label">Cover Image</label>
           <div ref={selectImage}></div>
           {image_url && (
             <img title={recipe?.title} src={image_url} className="img-cover h-64 md:h-[28rem] mt-2" />
@@ -192,24 +192,26 @@ const Form = (props: any) => {
           <input className="input-text" type="text" id="title" name="title" placeholder="Title" defaultValue={recipe?.title} required />
         </div>
 
-        <div className="mb-8">
-          <label htmlFor="category" className="label">Category</label>
-          <input className="input-text" type="text" id="category" name="category" placeholder="Category" defaultValue={recipe?.category} />
+        <div className="flex mb-8 justify-between">
+          <div className="basis-[49%]">
+            <label htmlFor="category" className="label">Category</label>
+            <input className="input-text" type="text" id="category" name="category" placeholder="Category" defaultValue={recipe?.category} />
+          </div>
+          <div className="basis-[49%]">
+            <label htmlFor="sub_category" className="label">Sub Category</label>
+            <input className="input-text" type="text" id="sub_category" name="sub_category" placeholder="Sub Category" defaultValue={recipe?.sub_category} />
+          </div>
         </div>
 
-        <div className="mb-8">
-          <label htmlFor="sub_category" className="label">Sub Category</label>
-          <input className="input-text" type="text" id="sub_category" name="sub_category" placeholder="Sub Category" defaultValue={recipe?.sub_category} />
-        </div>
-
-        <div className="mb-8">
-          <label htmlFor="externalTitle" className="label">External Title</label>
-          <input className="input-text" type="text" id="externalTitle" name="externalTitle" placeholder="External Title" defaultValue={recipe?.external_title} required />
-        </div>
-
-        <div className="mb-8">
-          <label htmlFor="externalURL" className="label">External URL</label>
-          <input className="input-text" type="text" id="externalURL" name="externalURL" placeholder="External URL" defaultValue={recipe?.external_url} required />
+        <div className="flex mb-8 justify-between">
+          <div className="basis-[49%]">
+            <label htmlFor="externalTitle" className="label">External Title</label>
+            <input className="input-text" type="text" id="externalTitle" name="externalTitle" placeholder="External Title" defaultValue={recipe?.external_title} required />
+          </div>
+          <div className="basis-[49%]">
+            <label htmlFor="externalURL" className="label">External URL</label>
+            <input className="input-text" type="text" id="externalURL" name="externalURL" placeholder="External URL" defaultValue={recipe?.external_url} required />
+          </div>
         </div>
 
         <div className="mb-8">
