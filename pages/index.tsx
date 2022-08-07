@@ -4,6 +4,8 @@ import action from '../lib/recipes/action'
 const Index = ({ data }: any) => {
   const recipes: Recipe[] = data['data']['recipes']
   const image_urls: string[] = data['data']['image_urls']
+  const categories: string[] = data['data']['categories']
+  const ingredients: string[] = data['data']['ingredients']
 
   return (
     <>
@@ -16,7 +18,7 @@ const Index = ({ data }: any) => {
       </div>
       <ul className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-3">
         {recipes.map((recipe: Recipe, index: number) => {
-          if (index == 0 || index >= 10) return
+          if (index == 0 || index >= 4) return
           return (
             <li key={recipe.id}>
               <Link href={`/recipes/${encodeURIComponent(recipe.uuid)}`}>
@@ -34,6 +36,52 @@ const Index = ({ data }: any) => {
             All Recipes
           </a>
         </Link>
+      </div>
+
+      <div className="mb-8">
+        <h2 className="text-3xl">Categories</h2>
+        <ul className="flex flex-wrap">
+          {categories.map((category: string, index: number) => {
+            return (
+              <li key={index} className="mr-3 my-3">
+                <Link href={{
+                  pathname: '/recipes/search',
+                  query: {
+                    type: 'category',
+                    keyword: encodeURIComponent(category)
+                  },
+                }}>
+                  <a className="badge">
+                    {category === '' ? '未分類' : category}
+                  </a>
+                </Link>
+              </li>
+            )
+          })}
+        </ul>
+      </div>
+
+      <div className="mb-8">
+        <h2 className="text-3xl">Ingredients</h2>
+        <ul className="flex flex-wrap">
+          {ingredients.map((ingredient: string, index: number) => {
+            return (
+              <li key={index} className="mr-3 my-3">
+                <Link href={{
+                  pathname: '/recipes/search',
+                  query: {
+                    type: 'ingredient',
+                    keyword: encodeURIComponent(ingredient)
+                  },
+                }}>
+                  <a className="badge">
+                    {ingredient}
+                  </a>
+                </Link>
+              </li>
+            )
+          })}
+        </ul>
       </div>
     </>
   )
