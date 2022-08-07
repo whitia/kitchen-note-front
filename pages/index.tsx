@@ -63,7 +63,7 @@ const Index = ({ data }: any) => {
 
       <div className="mb-8">
         <h2 className="text-3xl">Ingredients</h2>
-        <ul className="flex flex-wrap">
+        <ul className="flex flex-wrap justify-between">
           {ingredients.map((ingredient: string, index: number) => {
             return (
               <li key={index} className="mr-3 my-3">
