@@ -9,7 +9,7 @@ const Header = () => {
   return (
     <>
       <div className="container mx-auto max-w-full md:max-w-2xl flex justify-between items-center my-4">
-        <Link href='/recipes'>
+        <Link href='/'>
           <a className="text-3xl bg-clip-text text-transparent bg-gradient-to-r from-violet-500 to-sky-500 hover:text-transparent hover:from-violet-600 hover:to-sky-600">
             <span className="font-semibold">{titleSplit && titleSplit[0]}</span>
             <span className="font-extralight">{titleSplit && titleSplit[1]}</span>
