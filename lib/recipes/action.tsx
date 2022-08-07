@@ -1,7 +1,7 @@
 import client from '../axios'
 
 module action {
-  export const index = async (offset: number, limit: number) => {
+  export const index = async (offset: number | null = null, limit: number | null = null) => {
     const response = await client.get('/recipes', {
       params: {
         offset: offset,
