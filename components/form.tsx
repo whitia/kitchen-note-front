@@ -189,7 +189,7 @@ const Form = (props: any) => {
           <input className="input-text" type="text" id="title" name="title" placeholder="Title" defaultValue={recipe?.title} required />
         </div>
 
-        <div className="basis-[49%]">
+        <div className="mb-8">
           <label htmlFor="category" className="label">Category</label>
           <input className="input-text" type="text" id="category" name="category" placeholder="Category" defaultValue={recipe?.category} />
         </div>
