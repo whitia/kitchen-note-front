@@ -10,7 +10,7 @@ const Search = () => {
   if (inputSearch.current) {
     const regexp = new RegExp(/search/)
     if (regexp.test(router.pathname)) {
-      inputSearch.current.value = decodeURI(router.query.query as string)
+      inputSearch.current.value = decodeURI(router.query.keyword as string)
     } else {
       inputSearch.current.value = ''
     }

@@ -31,10 +31,11 @@ module action {
     return response.data
   }
 
-  export const search = async (query: string) => {
+  export const search = async (type: string, keyword: string) => {
     const response = await client.get('/recipes/search', {
       params: {
-        query: query,
+        type: type,
+        keyword: keyword,
       }
     })
     return response.data

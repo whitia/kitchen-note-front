@@ -31,7 +31,17 @@ const Recipe = ({ data }: any) => {
       <div className="flex justify-between items-start mb-8">
         <div>
           <h2 className="text-3xl">{recipe.title}</h2>
-          <span className="text-sm text-neutral-400">{recipe.category}</span>
+          <span className="text-sm text-neutral-400">
+            <Link href={{
+              pathname: '/recipes/search',
+              query: {
+                type: 'category',
+                keyword: encodeURIComponent(recipe.category)
+              },
+            }}>
+              {recipe.category}
+            </Link>
+          </span>
         </div>
         <p>
           <Link href={`/recipes/edit/${encodeURIComponent(recipe.uuid)}`}>
@@ -51,7 +61,10 @@ const Recipe = ({ data }: any) => {
               <li key={index} className="mr-3 my-3">
                 <Link href={{
                   pathname: '/recipes/search',
-                  query: { query: encodeURIComponent(ingredient) },
+                  query: {
+                    type: 'ingredient',
+                    keyword: encodeURIComponent(ingredient)
+                  },
                 }}>
                   <a className="badge">
                     {ingredient}

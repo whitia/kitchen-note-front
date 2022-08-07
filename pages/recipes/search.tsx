@@ -4,7 +4,7 @@ import action from '../../lib/recipes/action'
 
 const Search = ({ data }: any) => {
   const router = useRouter()
-  const query = decodeURI(router.query.query as string)
+  const keyword = decodeURI(router.query.keyword as string)
 
   const recipes: Recipe[] = data['data']['recipes']
   const image_urls: string[] = data['data']['image_urls']
@@ -14,7 +14,7 @@ const Search = ({ data }: any) => {
     <>
       <div className="mb-8 mt-2 md:mt-2">
         <h2 className="text-3xl">
-          Search result for "{query}"
+          Search result for "{keyword}"
         </h2>
         <p className="text-sm text-neutral-400">
           {total} recipe(s) found.
@@ -40,6 +40,6 @@ const Search = ({ data }: any) => {
 export default Search
 
 export const getServerSideProps = async ({ params, query }: any) => {
-  const data = await action.search(query.query)
+  const data = await action.search(query.type, query.keyword)
   return { props: { data } }
 }
