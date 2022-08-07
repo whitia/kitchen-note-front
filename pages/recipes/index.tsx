@@ -10,7 +10,7 @@ const Index = ({ data }: any) => {
       <div className="mb-4 md:mb-3">
         <Link href={`/recipes/${encodeURIComponent(recipes[0].uuid)}`}>
           <a>
-            <img title={recipes[0].title} src={image_urls[0]} className="img-cover h-64 md:h-[28rem]" />
+            <img title={recipes[0].title} src={image_urls[0]} className="img-cover h-64 md:h-[28rem] mt-6" />
           </a>
         </Link>
       </div>
