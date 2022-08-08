@@ -20,10 +20,13 @@ const Search = () => {
     event.preventDefault()
 
     if (inputSearch.current?.value) {
-      const query = inputSearch.current?.value
+      const keyword = inputSearch.current?.value
       router.push({
         pathname: '/recipes/search',
-        query: { query: encodeURI(query) }
+        query: {
+          type: 'ingredient',
+          keyword: encodeURI(keyword)
+        }
       })
     }
   }
