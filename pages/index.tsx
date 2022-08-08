@@ -1,3 +1,5 @@
+import { faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Link from 'next/link'
 import action from '../lib/recipes/action'
 
@@ -33,6 +35,8 @@ const Index = ({ data }: any) => {
       <div className="mt-4 mb-8 text-right">
         <Link href='/recipes'>
           <a>
+            <FontAwesomeIcon icon={faArrowRightFromBracket} />
+            &nbsp;
             All Recipes
           </a>
         </Link>
