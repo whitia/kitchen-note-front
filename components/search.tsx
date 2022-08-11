@@ -35,7 +35,7 @@ const Search = () => {
     <>
       <form onSubmit={handleSearchSubmit} className="relative">
         <FontAwesomeIcon icon={faMagnifyingGlass} className="absolute top-3.5 left-4 cursor-pointer" onClick={handleSearchSubmit} />
-        <input ref={inputSearch} className="input-text m-0 pl-10 pr-4 py-2 rounded-full" type="text" id="search" name="search" placeholder="Search by ingredient" />
+        <input ref={inputSearch} className="input-text m-0 pl-10 pr-4 py-2 rounded-full" type="text" id="search" name="search" placeholder="Search..." />
       </form>
     </>
   )
