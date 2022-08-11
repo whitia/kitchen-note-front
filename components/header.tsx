@@ -15,7 +15,7 @@ const Header = () => {
             <span className="font-extralight">{titleSplit && titleSplit[1]}</span>
           </a>
         </Link>
-        <div className="basis-1/3 ml-auto mr-4"><Search /></div>
+        <div className="basis-2/5 ml-auto mr-4"><Search /></div>
         <Link href='/recipes/new'>
           <a className="btn py-2 px-4 text-sm">
             <FontAwesomeIcon icon={faPlus} />
