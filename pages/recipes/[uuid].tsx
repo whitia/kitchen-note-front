@@ -21,7 +21,7 @@ const Recipe = ({ data }: any) => {
         mode = 'dark'
       }
       toast('🎉 Have just deleted item.', { theme: mode })
-      router.push('/recipes')
+      router.push('/')
     }
   }
 
