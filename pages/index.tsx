@@ -87,6 +87,9 @@ const Index = ({ data }: any) => {
           })}
         </ul>
       </div>
+      <div className="text-xs">
+        <a href="https://www.kurashiru.com" target="_blank">クラシル | 料理レシピ動画サービス</a>
+      </div>
     </>
   )
 }
